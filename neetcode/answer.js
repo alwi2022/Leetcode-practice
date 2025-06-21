@@ -61,3 +61,20 @@ const Input2 = [1, 2, 3, 4];
 
 // console.log(uniqueArr(Input1));
 // console.log(uniqueArr(Input2));
+
+// Input: s = "racecar", t = "carrace"
+// Output: true
+
+// Input: s = "jar", t = "jam"
+// Output: false
+
+// const s = "racecar";
+// const t = "carrace";
+
+// function isAnagram(s, t) {
+//   const sortedS = s.split("").sort().join();
+//   const sortedT = t.split("").sort().join();
+//   return sortedS == sortedT;
+// }
+
+// console.log(isAnagram(s, t));
