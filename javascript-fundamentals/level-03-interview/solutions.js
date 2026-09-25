@@ -54,3 +54,43 @@ console.log(findSecondLargest([10, 5, 18, 20, 15, 13, 12]));
 // ```text
 // 15
 // ```
+
+// ### 3. Hapus Duplicate Secara Manual
+// Buat function:
+
+function removeDuplicates(numbers) {
+  let result = [];
+  for (let i = 0; i < numbers.length; i++) {
+    let flags = false;
+    for (let j = 0; j < result.length; j++) {
+      if (numbers[i] === result[j]) {
+        flags = true;
+      }
+    }
+    if (!flags) {
+      result.push(numbers[i]);
+    }
+  }
+
+  return result;
+}
+console.log(removeDuplicates([1, 2, 2, 3, 1, 4]));
+// Input:
+
+// Output:
+
+// ```javascript
+// [1, 2, 3, 4]
+// ```
+
+// Jangan pakai:
+
+// ```javascript
+// Set
+// ```
+
+// Boleh pakai nested loop.
+
+// Fokus: array baru, duplicate checking, `push()`.
+
+// ---
