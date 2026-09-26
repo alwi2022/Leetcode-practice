@@ -200,15 +200,23 @@ console.log(findUserByEmail(users, "andi@mail.com"));
 
 // ### 6. Contains Duplicate
 // ```javascript
-// function containsDuplicate(numbers) {
-//   // code here
-// }
+function containsDuplicate(numbers) {
+  //   let temp = numbers[1];
+  for (let i = 0; i < numbers.length; i++) {
+    for (let j = i + 1; j < numbers.length; j++) {
+      if (numbers[i] === numbers[j]) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
 // ```
 
 // Input:
 
 // ```javascript
-// [1, 2, 3, 1]
+console.log(containsDuplicate([1, 2, 3, 1]));
 // ```
 
 // Output:
@@ -224,7 +232,7 @@ console.log(findUserByEmail(users, "andi@mail.com"));
 // ```
 
 // Output:
-
+console.log(containsDuplicate([1, 2, 3, 4]));
 // ```text
 // false
 // ```
@@ -233,9 +241,32 @@ console.log(findUserByEmail(users, "andi@mail.com"));
 
 // ### 7. Valid Anagram
 // ```javascript
-// function isAnagram(word1, word2) {
-//   // code here
-// }
+function isAnagram(word1, word2) {
+  if (word1.length !== word2.length) {
+    return false;
+  }
+
+  let result = {};
+  for (let i = 0; i < word1.length; i++) {
+    let str = word1[i];
+    if (result[str]) {
+      result[str] += 1;
+    } else {
+      result[str] = 1;
+    }
+  }
+
+  for (let i = 0; i < word2.length; i++) {
+    let str = word2[i];
+    if (!result[str]) {
+      return false;
+    }
+    result[str] -= 1;
+  }
+
+  //   console.log(result)
+  return true;
+}
 // ```
 
 // Input:
@@ -243,7 +274,7 @@ console.log(findUserByEmail(users, "andi@mail.com"));
 // ```javascript
 // isAnagram("racecar", "carrace")
 // ```
-
+console.log(isAnagram("racecar", "carrace"));
 // Output:
 
 // ```text
@@ -268,9 +299,25 @@ console.log(findUserByEmail(users, "andi@mail.com"));
 // Sebuah angka disebut majority kalau muncul lebih dari `n / 2` kali.
 
 // ```javascript
-// function majorityElement(numbers) {
-//   // code here
-// }
+function majorityElement(numbers) {
+  // code here
+  let result = {};
+
+  for (let i = 0; i < numbers.length; i++) {
+    let number = numbers[i];
+    if (result[number]) {
+      result[number] += 1;
+    } else {
+      result[number] = 1;
+    }
+  }
+
+  for (let key in result) {
+    if (result[key] % 2 === 0) {
+      return key;
+    }
+  }
+}
 // ```
 
 // Input:
@@ -278,7 +325,8 @@ console.log(findUserByEmail(users, "andi@mail.com"));
 // ```javascript
 // [3, 2, 3]
 // ```
-
+console.log(majorityElement([3, 2, 3]));
+console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
 // Output:
 
 // ```text
@@ -303,15 +351,30 @@ console.log(findUserByEmail(users, "andi@mail.com"));
 
 // ### 9. Best Time to Buy and Sell Stock
 // ```javascript
-// function maxProfit(prices) {
-//   // code here
-// }
+function maxProfit(prices) {
+  let minPrice = prices[0];
+  let maxProfit = 0;
+
+  for (let i = 1; i < prices.length; i++) {
+    let price = prices[i];
+
+    if (price < minPrice) {
+      minPrice = price;
+    } else if (price - minPrice > maxProfit) {
+      maxProfit = price - minPrice;
+    }
+  }
+
+  return maxProfit;
+}
+
+console.log(maxProfit([7, 1, 5, 3, 6, 4]));
+// 5
 // ```
 
 // Input:
 
 // ```javascript
-// [7, 1, 5, 3, 6, 4]
 // ```
 
 // Output:
@@ -328,15 +391,24 @@ console.log(findUserByEmail(users, "andi@mail.com"));
 
 // ### 10. Two Sum
 // ```javascript
-// function twoSum(numbers, target) {
-//   // code here
-// }
+function twoSum(numbers, target) {
+  let result = [];
+  for (let i = 0; i < numbers.length; i++) {
+    for (let j = i + 1; j < numbers.length; j++) {
+      if (numbers[i] + numbers[j] === target) {
+        result.push(i, j);
+      }
+    }
+  }
+
+  return result;
+}
 // ```
 
 // Input:
 
 // ```javascript
-// twoSum([3, 2, 4], 6)
+console.log(twoSum([3, 2, 4, 6], 9));
 // ```
 
 // Output:
