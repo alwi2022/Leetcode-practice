@@ -10,7 +10,7 @@ function maxDifference(numbers) {
   // code here
   let min = Infinity;
   let max = -Infinity;
-  let selisih = [];
+
   for (let i = 0; i < numbers.length; i++) {
     let number = numbers[i];
     if (number > max) {
@@ -21,11 +21,7 @@ function maxDifference(numbers) {
       min = number;
     }
   }
-
-  for (let i = min; i < max; i++) {
-    selisih.push(i);
-  }
-  return selisih.length;
+  return max - min;
 }
 // ```
 
@@ -178,22 +174,13 @@ function countUnique(numbers) {
   let count = 0;
   for (let i = 0; i < numbers.length; i++) {
     let number = numbers[i];
-    if (result[number]) {
-      result[number] += 1;
-    } else {
-      result[number] = 1;
+    if (!result[number]) {
+      result[number] = true
+      count++
     }
   }
-  let max = null;
-  for (let i = 0; i < numbers.length; i++) {
-    let number = numbers[i];
+  return count
 
-    if (result[number] > count) {
-      count = result[number];
-      max = Number(number);
-    }
-  }
-  return max;
 }
 // ```
 
@@ -284,10 +271,12 @@ function isSameArray(arr1, arr2) {
   }
 
   for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] === arr2[i]) {
-      return true;
+    if (arr1[i] !== arr2[i]) {
+      return false;
     }
   }
+
+  return true
 }
 // ```
 
@@ -436,7 +425,7 @@ function topSpender(transactions) {
 
   return {
     user: jawaban,
-    amount: max,
+    tptal: max,
   };
 }
 // ```
@@ -524,17 +513,17 @@ console.log(separateEvenOdd([1, 2, 3, 4, 5, 6]));
 // ```javascript
 function findLongestWord(sentence) {
   // code here
-  let max = -Infinity
-  let result = ''
+  let max = -Infinity;
+  let result = "";
   let str = sentence.split(" ");
- for(let i = 0 ;i<str.length;i++){
-    let temp = str[i]
-    if(temp.length > max){
-        max = temp.length
-        result = temp
+  for (let i = 0; i < str.length; i++) {
+    let temp = str[i];
+    if (temp.length > max) {
+      max = temp.length;
+      result = temp;
     }
- }
- return result
+  }
+  return result;
 }
 // ```
 
