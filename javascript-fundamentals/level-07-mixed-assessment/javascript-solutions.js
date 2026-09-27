@@ -16,6 +16,25 @@
 
 function firstUniqueCharacter(text) {
   // Tulis solusi nomor 1 di sini.
+  let seen = {};
+  for (let i = 0; i < text.length; i++) {
+    let str = text[i];
+    if (seen[str]) {
+      seen[str] += 1;
+    } else {
+      seen[str] = 1;
+    }
+  }
+
+  for (let i = 0; i < text.length; i++) {
+    let str = text[i];
+
+    if (seen[str] === 1) {
+      return str;
+    }
+  }
+
+  return null
 }
 
 // Test case 1A:

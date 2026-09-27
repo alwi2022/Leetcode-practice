@@ -15,6 +15,21 @@ const products = [
 
 function updateProductPrice(productId, newPrice) {
   // Tulis solusi nomor 3 di sini.
+  let product = products.find((items) => items.id === productId);
+  if (!product) {
+    return "Product not found";
+  }
+  if (newPrice <= 0) {
+    return "Invalid price";
+  }
+
+  product.price = newPrice
+
+  return {
+    productId:product.id,
+    name: product.name,
+    price: product.price
+  }
 }
 
 // Test case 3A, update valid:

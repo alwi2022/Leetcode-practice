@@ -20,7 +20,13 @@ function mostFrequentItem(items) {
   if (items.length === 0) {
     return null;
   }
- let temp = items[0]
+  for (let i = 0; i < items.length; i++) {
+    for (let j = i + 1; j < items.length; j++) {
+      if (items[j] === items[i]) {
+        return items[j];
+      }
+    }
+  }
 }
 
 // Test case 1A:
