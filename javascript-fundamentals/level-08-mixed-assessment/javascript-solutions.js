@@ -18,6 +18,35 @@
 
 function hasSameCharacterFrequency(word1, word2) {
   // Tulis solusi nomor 1 di sini.
+
+  if (word1.length !== word2.length) {
+    return false;
+  }
+
+  let seen = {};
+  let result = false;
+  for (let i = 0; i < word1.length; i++) {
+    let str = word1[i];
+    let btr = str.toLowerCase();
+    if (seen[btr]) {
+      seen[btr] += 1;
+    } else {
+      seen[btr] = 1;
+    }
+  }
+
+  for (let i = 0; i < word2.length; i++) {
+    let str = word2[i];
+    let btr = str.toLowerCase();
+    if (seen[str]) {
+      seen[str] -= 1;
+      result = true;
+    } else {
+      return false;
+    }
+  }
+
+  return result;
 }
 
 // Test case 1A:
