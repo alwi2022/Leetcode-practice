@@ -1,0 +1,12 @@
+{
+  "name": "level-05-backend-practice",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node backend-solutions.js",
+    "test:manual": "node test-cases.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
