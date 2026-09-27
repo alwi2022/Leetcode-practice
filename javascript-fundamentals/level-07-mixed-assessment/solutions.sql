@@ -1,0 +1,26 @@
+-- 2. SQL: User dengan Completed Order Terbanyak
+--
+-- Tabel:
+-- users(id, name)
+-- orders(id, user_id, amount, status)
+--
+-- Tugas:
+-- Tampilkan user dengan jumlah completed order terbanyak.
+--
+-- Ketentuan:
+-- - Hanya order dengan status = 'completed'.
+-- - Hitung jumlah completed order per user.
+-- - Tampilkan user dengan jumlah completed order terbanyak.
+-- - Jika lebih dari satu user memiliki jumlah sama, tampilkan semuanya.
+--
+-- Kolom output:
+-- name | total_completed_orders
+--
+-- Expected bentuk output:
+-- name | total_completed_orders
+-- -----|-----------------------
+-- Imam | 3
+-- Andi | 3
+
+-- Tulis query nomor 2 di bawah ini.
+
